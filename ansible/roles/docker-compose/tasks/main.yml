@@ -1,0 +1,12 @@
+
+- name: Install Latest Docker Compose v2
+  ansible.builtin.get_url:
+    url: https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: '0755'
+  become: true
+
+- name: Verify docker-compose installation
+  ansible.builtin.command: docker-compose --version
+  register: docker_compose_version
+  changed_when: false

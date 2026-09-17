@@ -1,0 +1,12 @@
+---
+- name: Install docker and docker-compose on the target VM
+  hosts: vagrantvm
+  gather_facts: false
+  become: true
+
+
+  roles:
+    - docker
+    - docker-compose
+
+
